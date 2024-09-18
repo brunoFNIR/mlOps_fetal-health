@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+mlflow
+scikit-learn
+pandas
+matplotlib
+pytest
+pycodestyle
+tensorflow
