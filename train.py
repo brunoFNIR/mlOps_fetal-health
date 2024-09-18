@@ -5,8 +5,9 @@ import mlflow
 import numpy as np
 import pandas as pd
 import tensorflow as tf
-from keras.layers import Dense, InputLayer
-from keras.models import Sequential
+from tensorflow import keras
+from tensorflow.keras import layers
+
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 
@@ -91,11 +92,11 @@ def create_model(X):
         tensorflow.keras.models.Sequential: The created neural network model.
     """
     reset_seeds()
-    model = Sequential()
-    model.add(InputLayer(input_shape=(X.shape[1],)))
-    model.add(Dense(10, activation='relu'))
-    model.add(Dense(10, activation='relu'))
-    model.add(Dense(3, activation='softmax'))
+    model = keras.Sequential()
+    model.add(layers.InputLayer(input_shape=(X.shape[1],)))
+    model.add(layers.Dense(10, activation='relu'))
+    model.add(layers.Dense(10, activation='relu'))
+    model.add(layers.Dense(3, activation='softmax'))
 
     model.compile(loss='sparse_categorical_crossentropy',
                   optimizer='adam',
@@ -123,9 +124,9 @@ def config_mlflow():
     Returns:
         None
     """
-    os.environ['MLFLOW_TRACKING_USERNAME'] = 'renansantosmendes'
-    os.environ['MLFLOW_TRACKING_PASSWORD'] = '6d730ef4a90b1caf28fbb01e5748f0874fda6077'
-    mlflow.set_tracking_uri('https://dagshub.com/renansantosmendes/puc_lectures_mlops.mlflow')
+    os.environ['MLFLOW_TRACKING_USERNAME'] = 'brunoFNIR'
+    os.environ['MLFLOW_TRACKING_PASSWORD'] = 'c64e879cbe5a3f32f5d7d5a392678e2c9fe10e85'
+    mlflow.set_tracking_uri('https://dagshub.com/brunoFNIR/my-first-repo.mlflow')
 
     mlflow.tensorflow.autolog(log_models=True,
                               log_input_examples=True,
