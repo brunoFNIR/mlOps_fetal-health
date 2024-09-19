@@ -1,6 +1,7 @@
 import pandas as pd
 import pytest
-from tensorflow.keras.models import Sequential
+from tensorflow import keras
+from tensorflow.keras import layers
 
 from train import (read_data,
                    create_model,
@@ -37,7 +38,8 @@ def test_read_data():
     """
     X, y = read_data()
 
-    assert not X.empty
+    #"assert" sempre faz uma verificação
+    assert not X.empty #garante que o X não está vazio
     assert not y.empty
 
 
@@ -51,7 +53,7 @@ def test_create_model():
 
     assert len(model.layers) > 2
     assert model.trainable
-    assert isinstance(model, Sequential)
+    assert isinstance(model, keras.Sequential)
 
 
 def test_train_model(sample_data):

@@ -158,7 +158,7 @@ def train_model(model, X_train, y_train, is_train=True):
         run_uri = f'runs:/{run.info.run_id}'
         mlflow.register_model(run_uri, 'fetal_health')
 
-
+#utilizando a propria linguagem para dar uma ordem correta de exução do script, baseada nas funções criadas
 if __name__ == "__main__":
     X, y = read_data()
     X_train, X_test, y_train, y_test = process_data(X, y)
