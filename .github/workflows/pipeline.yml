@@ -8,7 +8,7 @@ on:
     - first_branch
     - main
   workflow_dispatch:
-  # Allows external webhook trigger
+  # Allows external webhook triggerr
   repository_dispatch:
     types:
       - webhook
